@@ -1,0 +1,15 @@
+1. Create Entities for what we need to store in the database.
+// First create room.java jisme id,roomid,message list bane h jo message h uski alg class h jisme sender,content,timestamp h or constructor h jisme timestamp apne aap current time jitni hojayegi
+2. Create Repositories sbse pehli h RoomRepository jo extend kregi MongoRepository<Room,String> or ek extra function findByRoomId(String roomId)
+3. Create Services (khud bnani h isne nhi krayi to khudse hisab lgake bnani pdegi) to sbse phle bna rha hun room service.
+4. Jaise ye bina service ke bna rha h same bna rha hun
+5. Controller bnane h 2 chat or room ke abhi room me changes krne h api bnani h create room,get room,get messages or bhi.....
+6. Room controller ban gya...
+7. Create WebSocketConfigurer in config package websocket ko chlane ke ;iye fr chat ki api bnayenge..
+// 2 dependency lgegi @Configuration-> Beans bnane ke liye, @EnableWebSocketMessageBroker-> Act as a broker for messages
+// Implement krni h class WebSocketMessageBrokerConfigurer configure krne ke liye or isme se 2 methods ko override krna h
+// configureMessageBroker(MessageBrokerRegistry registry) isme se andr ka function htana h or khudka likhna h..
+// bracket me registry ka naam change krke config kr diya or aage changes kre h jo idk kya h..
+// registerStompEndpoints(StompEndpointRegistry registry) dusra function h...
+8. Chat controller me function bnane h jisme pehla h sendMessage ka jispe 2 annotation lgegi
+// pehli h MessageMapping("/sendMessage/{roomId}") or dusri h @SendTo("/topic/room/{roomId}")
