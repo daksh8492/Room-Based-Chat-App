@@ -1,5 +1,6 @@
 package com.chat.chat_app_backend.controllers;
 
+import com.chat.chat_app_backend.config.AppConstants;
 import com.chat.chat_app_backend.entities.Message;
 import com.chat.chat_app_backend.entities.Room;
 import com.chat.chat_app_backend.playload.MessageRequest;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.time.LocalDateTime;
 
 @Controller
-@CrossOrigin("http://localhost:5173")
+@CrossOrigin(AppConstants.FRONT_END_BASE_URL)
 public class ChatController {
 
     @Autowired
